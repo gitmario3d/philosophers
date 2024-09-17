@@ -6,13 +6,26 @@
 /*   By: malena-b <mario3d93@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 13:00:18 by malena-b          #+#    #+#             */
-/*   Updated: 2024/09/13 13:51:00 by malena-b         ###   ########.fr       */
+/*   Updated: 2024/09/17 13:51:39 by malena-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <pthread.h>
 #include <stdio.h>
 #include <unistd.h>
+#include <stdlib.h>
+#include <stdbool.h>
+#include <errno.h>
+
+typedef	enum	s_mutex_code
+{
+	INIT,
+	LOCK,
+	UNLOCK,
+	DESTROY,
+	JOIN,
+	CREATE,
+}				t_m_code;
 
 typedef struct s_philo
 {
@@ -36,4 +49,5 @@ typedef struct s_info
 }				t_info;
 
 int		ft_atoi(const char *str);
-void	error_exit(char	*error_msg);
+void	ft_error_exit(char	*error_msg, t_info *info);
+void	ft_init_info(t_info *info, char **argv);
