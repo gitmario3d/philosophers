@@ -23,12 +23,12 @@ void	ft_init_info(t_info *info, char **argv)
 	info->time_to_die = ft_atoi(argv[2]);
 	info->time_to_eat = ft_atoi(argv[3]);
 	info->time_to_sleep = ft_atoi(argv[4]);
-	if (argv[5])
-		info->total_meals = argv[5];
-	if (info->total_meals <= 0)
-		ft_error_exit("invalid number of meals.", info);
-	else
+	if (!argv[5])
 		info->total_meals = -1;
+	else
+		info->total_meals = argv[5];
+			if (info->total_meals <= 0)
+				ft_error_exit("invalid number of meals.", info);
 	info->philos = malloc(sizeof(t_philo *) * (info->philo_numbers + 1));
 	if (!info->philos)
 		ft_error_exit("creation of malloc failed.", info);
