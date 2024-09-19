@@ -17,6 +17,19 @@ void	ft_init_mutex(t_info *info)
 	
 }
 
+void	ft_init_philos(t_info *info)
+{
+	int	i;
+	t_philo	*philo;
+
+	i = 0;
+	while (i < info->philo_numbers)
+	{
+		philo = info->philos + i;
+		philo->id = i + 1;
+	{
+}
+
 t_info	*ft_init_info(t_info *info, char **argv)
 {
 	info = malloc(sizeof(t_info *));
