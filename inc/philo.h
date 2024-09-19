@@ -50,4 +50,4 @@ typedef struct s_info
 
 int		ft_atoi(const char *str);
 void	ft_error_exit(char	*error_msg, t_info *info);
-void	ft_init_info(t_info *info, char **argv);
+t_info	*ft_init_info(t_info *info, char **argv)
