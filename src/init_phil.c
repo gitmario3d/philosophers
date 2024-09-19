@@ -17,8 +17,11 @@ void	ft_init_mutex(t_info *info)
 	
 }
 
-void	ft_init_info(t_info *info, char **argv)
+t_info	*ft_init_info(t_info *info, char **argv)
 {
+	info = malloc(sizeof(t_info *));
+	if (!info)
+		ft_error_exit("info malloc went wrong.", info);
 	info->philo_numbers = ft_atoi(argv[1]);
 	info->time_to_die = ft_atoi(argv[2]);
 	info->time_to_eat = ft_atoi(argv[3]);
@@ -32,4 +35,5 @@ void	ft_init_info(t_info *info, char **argv)
 	info->philos = malloc(sizeof(t_philo *) * (info->philo_numbers + 1));
 	if (!info->philos)
 		ft_error_exit("creation of malloc failed.", info);
+	return (info)
 }
