@@ -16,6 +16,8 @@ void	ft_check_args(char **argv)
 {
 	if (argv[1] <= 0 | argv[1] > 200)
 		error_exit("invalid number of philosophers", NULL);
+	if (argv[5] && ft_atoi(argv[5]) <= 0)
+		ft_error_exit("invalid number of meals.", info);
 }
 
 int	main(int argc, char **argv)
