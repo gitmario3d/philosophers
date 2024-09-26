@@ -6,7 +6,7 @@
 /*   By: malena-b <mario3d93@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 13:21:07 by malena-b          #+#    #+#             */
-/*   Updated: 2024/09/17 13:33:29 by malena-b         ###   ########.fr       */
+/*   Updated: 2024/09/26 12:20:33 by malena-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@ void	ft_init_mutex(t_info *info)
 
 void	ft_init_philos(t_info *info)
 {
-	int	i;
+	int		i;
 	t_philo	*philo;
 
-	i = 0;
-	while (i < info->philo_numbers)
+	i = 1;
+	while (i <= info->philo_numbers)
 	{
-		philo = info->philos + i;
-		philo->id = i + 1;
-	{
+		philo = info->philos + (i - 1);
+		philo->id = i++;
+	}
 }
 
 t_info	*ft_init_info(t_info *info, char **argv)
@@ -46,5 +46,5 @@ t_info	*ft_init_info(t_info *info, char **argv)
 	info->philos = malloc(sizeof(t_philo *) * (info->philo_numbers + 1));
 	if (!info->philos)
 		ft_error_exit("creation of malloc failed.", info);
-	return (info)
+	return (info);
 }

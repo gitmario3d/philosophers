@@ -6,7 +6,7 @@
 /*   By: malena-b <mario3d93@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 13:00:18 by malena-b          #+#    #+#             */
-/*   Updated: 2024/09/17 13:51:39 by malena-b         ###   ########.fr       */
+/*   Updated: 2024/09/26 13:16:28 by malena-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef	enum	s_mutex_code
 typedef struct s_philo
 {
 	pthread_t	thread;
+	int			id;
 	size_t		time_to_die;
 	size_t		time_to_eat;
 	size_t		time_to_sleep;
@@ -50,4 +51,4 @@ typedef struct s_info
 
 int		ft_atoi(const char *str);
 void	ft_error_exit(char	*error_msg, t_info *info);
-t_info	*ft_init_info(t_info *info, char **argv)
+t_info	*ft_init_info(t_info *info, char **argv);
