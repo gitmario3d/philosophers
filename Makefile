@@ -6,17 +6,16 @@
 #    By: malena-b <mario3d93@gmail.com>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/18 10:33:13 by dparada           #+#    #+#              #
-#    Updated: 2024/09/13 12:45:17 by malena-b         ###   ########.fr        #
+#    Updated: 2024/10/15 14:34:06 by malena-b         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = pipex
+NAME = philosophers
 USER = malena-b
-CC = clang
+CC = gcc
 CFLAGS = -Wall -Wextra -Werror -g
 SRC_DIR = src/
 OBJ_DIR = obj/
-B_SRC_DIR = Bonus/
 
 DEF_COLOR	= \033[0;39m
 MAGENTA		= \033[0;35m
@@ -30,13 +29,18 @@ CYAN		= \033[0;37m
 RED			= \033[0;31m
 BOLD		= \033[1m
 
-SRC_FILES = 
-BONUS_FILES =
+SRC_FILES = main \
+			inits \
+			libft_impostor \
+			lonely_philo \
+			monitor_codes \
+			mutex_codes \
+			philos_codes \
+			thread_codes \
+			utils
 
 SRC = $(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
 OBJ = $(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))
-BONUS_SRC = $(addprefix $(B_SRC_DIR), $(addsuffix .c, $(BONUS_FILES)))
-BONUS_OBJ = $(addprefix $(OBJ_DIR), $(addsuffix .o, $(BONUS_FILES)))
 
 OBJF = .cache_exists
 
@@ -80,9 +84,5 @@ norm:
 	@norminette $(B_SRC_DIR)
 	@echo
 
-bonus: $(BONUS_OBJ)
-			@$(CC) $(CFLAGS) $(BONUS_OBJ) -o $(BONUS_NAME)
-			@echo "$(GREEN)BONUS COMPLETE!$(RESET)"
-			@echo
-.PHONY: all clean fclean re norm compiling bonus
+.PHONY: all clean fclean re norm compiling
 
